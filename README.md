@@ -380,7 +380,7 @@ Hit Rate@10: 0.0237
 Nilai 0.0237 menunjukkan bahwa hanya sekitar **2.37% pengguna** yang menerima rekomendasi yang sesuai dalam 10 rekomendasi teratas. Nilai ini masih tergolong rendah, menandakan bahwa pendekatan content-based masih perlu ditingkatkan, misalnya melalui pemrosesan fitur yang lebih kaya, seperti analisis NLP lanjutan atau penggunaan embedding vektor konten.
 
 
-### **2. Evaluasi Content-Based Filtering**
+### **2. Evaluasi Collaborative Filtering**
 
 Metrik: `RMSE dan MAE`
 
