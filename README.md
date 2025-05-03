@@ -359,6 +359,83 @@ Menggunakan rating historis pengguna untuk mempelajari pola preferensi pengguna.
 | **Collaborative Filtering (SVD)**   | - Menemukan pola tersembunyi dari interaksi user.                          | - Membutuhkan data rating cukup banyak.                                    |
 |                                 | - Bisa rekomendasikan film di luar genre yang biasa ditonton.            | - Tidak efektif untuk user baru tanpa rating sebelumnya (cold-start problem). |
 
+### **Hasil N-Top Recommender**
+
+Berikut adalah hasil rekomendasi film yang diperoleh dari sistem rekomendasi berbasis Collaborative Filtering dengan algoritma SVD untuk User ID 1:
+
+| No | Judul Film | Estimasi Rating |
+|----|------------|-----------------|
+| 1 | Once Were Warriors | 3.76 |
+| 2 | License to Wed | 3.73 |
+| 3 | While You Were Sleeping | 3.69 |
+| 4 | Shriek If You Know What I Did Last Friday the Thirteenth | 3.69 |
+| 5 | Straw Dogs | 3.69 |
+| 6 | Confession of a Child of the Century | 3.68 |
+| 7 | The 39 Steps | 3.68 |
+
+### **Karakteristik Rekomendasi**
+
+1. **Range Rating:** 
+
+    Rekomendasi memiliki rentang estimasi rating yang relatif sempit (3.68-3.76) dengan selisih hanya 0.08 poin, menunjukkan tingkat kesesuaian yang hampir setara dari film-film tersebut untuk User ID 1.
+
+2. **Rata-rata Rating:** 
+
+    Estimasi rating rata-rata sekitar 3.70 dari skala 5.0, mengindikasikan bahwa film-film ini diprediksi akan cukup disukai oleh pengguna, meskipun tidak mencapai level sangat tinggi.
+
+
+3. **Keragaman Genre:** Rekomendasi mencakup beragam genre film:
+
+    - Drama kuat ("Once Were Warriors")
+    - Komedi romantis ("License to Wed")
+    - Film romantis ("While You Were Sleeping")
+    - Parodi horor ("Shriek If You Know What I - Did Last Friday the Thirteenth")
+    - Thriller psikologis ("Straw Dogs")
+    - Film klasik Hitchcock ("The 39 Steps")
+
+4. **Distribusi Era:** 
+
+    Daftar mencakup film dari berbagai periode waktu, mulai dari film klasik 1935 hingga produksi modern 2000-an, menunjukkan preferensi pengguna yang tidak terbatas pada era tertentu.
+
+### **Implikasi Model**
+
+1. **Film Peringkat Teratas:** 
+
+    "Once Were Warriors" dengan rating tertinggi 3.76 menunjukkan kemungkinan preferensi pengguna terhadap drama dengan tema mendalam dan realistis.
+
+2. **Kesamaan Prediksi:** 
+
+    Terdapat tiga film dengan estimasi rating identik (3.69), yang dapat mengindikasikan:
+
+    - Keterbatasan model dalam membedakan preferensi detail
+    - Kesamaan karakteristik latent factor film-film tersebut dalam model SVD
+
+3. **Jumlah Rekomendasi:** 
+
+    Meskipun parameter n=10 dalam fungsi get_top_n, output hanya menampilkan 7 rekomendasi, yang mungkin disebabkan oleh:
+
+    - Terbatasnya jumlah film yang belum ditonton oleh User ID 1 dengan prediksi rating tinggi
+    - Potensi batasan dalam implementasi algoritma
+
+### **Kesimpulan dan Saran Pengembangan**
+
+1. **Efektivitas Personalisasi:**
+    
+    Sistem telah berhasil memberikan rekomendasi yang dipersonalisasi berdasarkan pola preferensi User ID 1, dibuktikan dengan keberagaman genre namun konsistensi rating.
+
+2. **Potensi Peningkatan:**
+
+    - Integrasi fitur konten film (direktur, aktor, plot) untuk meningkatkan keakuratan dan keragaman rekomendasi
+    - Penerapan teknik hybrid recommendation yang menggabungkan collaborative filtering dengan content-based filtering
+    - Eksplorasi algoritma matrix factorization alternatif seperti NMF atau ALS
+
+3. **Pertimbangan Filter Bubble:** 
+
+    Meskipun rekomendasi tampak beragam, perlu dipertimbangkan risiko "filter bubble" di mana pengguna hanya direkomendasikan konten serupa tanpa eksposur terhadap genre atau tipe film yang benar-benar baru.
+
+Model SVD telah mendemonstrasikan kemampuannya dalam mengidentifikasi pola preferensi pengguna dan menghasilkan rekomendasi yang relevan. Dengan penyempurnaan lebih lanjut, sistem ini dapat memberikan pengalaman personalisasi yang lebih kaya dan akurat bagi pengguna.
+
+
 ## Evaluation
 
 ### **1. Evaluasi Content-Based Filtering**
